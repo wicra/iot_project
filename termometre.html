@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thermomètre</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+    <body>
+        <style>
+            body {
+                
+                padding: 0;
+                margin: 0;
+            }
+
+            .contenaire{
+                padding: 5vh 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #wrapper {
+                width: 10%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #thermometer {
+                width: 25px;
+                height: 300px;
+                background-color: #ccc;
+                border-radius: 10px;
+                position: relative;
+            }
+
+            #temperature {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                background-color: #ff6b6b;
+                border-radius: 0 0 10px 10px;
+                transition: height 0.5s ease;
+            }
+
+            #bubble {
+                
+                width: 70px;
+                height: 70px;
+                background-color: #ff6b6b;
+                border-radius: 50%;
+                position: absolute;
+                bottom: 0px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: bold;
+            }
+
+            .valeur{
+                width: 10%;
+            }
+            #valeur{
+                font-size: 130px;
+                padding: 0;
+                margin: 0;
+                
+            }
+            .information-temperature{
+                padding: 0 0 10vh 0;
+            }
+
+
+        </style>
+        <div class="contenaire">
+            <div id="wrapper">
+                <div id="thermometer">
+                    <div id="temperature" data-value="0°C"></div>
+                    <div id="bubble"></div>
+                </div>
+                
+            </div>      
+            <div class="valeur">
+                <div class="information-temperature">
+                    <h1 id="valeur"></h1>
+                    <h3>Capteur DHT11</h3> *
+                    <p>Actuellement la tempreature esst correcteActuellement la tempreature esst correcte  </p>
+                </div>
+                
+            </div> 
+  
+        </div>
+
+        <script>
+            const minTemp = -20;
+            const maxTemp = 50;
+            let currentTemp = 0;
+            const temperatureElement = document.getElementById("temperature");
+            const bubbleElement = document.getElementById("valeur");
+
+            function updateTemperature() {
+                currentTemp = Math.floor(Math.random() * (maxTemp - minTemp + 1)) + minTemp;
+                temperatureElement.style.height = ((currentTemp - minTemp) / (maxTemp - minTemp) * 100) + "%";
+                temperatureElement.dataset.value = currentTemp + "°C";
+                bubbleElement.textContent = currentTemp + "°C";
+                setTimeout(updateTemperature, 1000);
+            }
+
+            updateTemperature();
+
+        </script>
+
+    </body>
+</html>
