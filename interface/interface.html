@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- ICON -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="interface.css">
+</head>
+<body>
+
+    <header>
+        <a class="icon-connection" href="">
+            <i class="fa-solid fa-user"></i>
+        </a>
+
+        <div class="titre">
+            <h1>IOT PROJECT</h1>
+        </div>
+    </header>
+
+
+    <div class="section-interface">
+
+        <div class="contenue" >
+            <!-- Valeur Capteur -->
+            <h1 id="contenue"></h1>
+        </div>
+        <div class="humidité">
+            <div class="bouton" onclick="afficherContenu('Température')">
+                <i class="fa-solid fa-temperature-quarter"></i>
+                <span>Température</span>
+            </div>
+            <div class="bouton" onclick="afficherContenu('Humidité')">
+                <i class="fa-solid fa-umbrella"></i>
+                <span>Humidité</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour générer une température aléatoire
+        function genererTemperature() {
+            return (Math.random() * 50).toFixed(2); // Valeur aléatoire entre 0 et 50 avec 2 décimales
+        }
+
+        // Fonction pour générer une humidité aléatoire
+        function genererHumidite() {
+            return (Math.random() * 100).toFixed(2); // Valeur aléatoire entre 0 et 100 avec 2 décimales
+        }
+
+        // Afficher la température par défaut
+        document.getElementById('contenue').innerText = genererTemperature();
+
+        // Fonction pour afficher les valeurs de température ou d'humidité
+        function afficherContenu(type) {
+            if (type === 'Température') {
+                document.getElementById('contenue').innerText = genererTemperature() + "°C";
+            } else if (type === 'Humidité') {
+                document.getElementById('contenue').innerText = genererHumidite() + "%";
+            }
+        }
+    </script>
+
+</body>
+</html>
