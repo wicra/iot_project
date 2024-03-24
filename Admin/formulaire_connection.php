@@ -7,19 +7,18 @@
 "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" href="../Admin/connection.css">
-	<title>Login Page</title>
+	<link rel="stylesheet" href="formulaire_connection.css">
+	<title>Page de connection</title>
 </head>
 
 <body>
-	<form action="valider.php" method="post">
+	<form action="validation_donnee.php" method="post">
 		<div class="login-box">
 			<h1>Login</h1>
 
 			<div class="textbox">
 				<i class="fa fa-user" aria-hidden="true"></i>
-				<input type="text" placeholder="Username"
-						name="username" value="">
+				<input type="text" placeholder="Username" name="username" value="">
 			</div>
 
 			<div class="textbox">

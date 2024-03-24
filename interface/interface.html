@@ -21,19 +21,25 @@
         </div>
     </header>
 
-
+    <div class="app-top-bar">
+        <button class="button button-small">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <h1 class="app-heading">Weather Stats</h1>
+      </div>
+      
     <div class="section-interface">
 
         <div class="contenue" >
             <!-- Valeur Capteur -->
             <h1 id="contenue"></h1>
         </div>
-        <div class="humidité">
-            <div class="bouton" onclick="afficherContenu('Température')">
+        <div class="humidité-container">
+            <div class="bouton-temperature" onclick="afficherContenu('Température')">
                 <i class="fa-solid fa-temperature-quarter"></i>
                 <span>Température</span>
             </div>
-            <div class="bouton" onclick="afficherContenu('Humidité')">
+            <div class="bouton-humidite" onclick="afficherContenu('Humidité')">
                 <i class="fa-solid fa-umbrella"></i>
                 <span>Humidité</span>
             </div>
