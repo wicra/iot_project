@@ -24,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Vérifie si la méthode de requê
 			header("location: adminpage.php"); // Redirige vers la page d'administration.
 		}
 		else { // Si les informations ne sont pas correctes.
-
 			echo "<script language='javascript'>"; // Affiche un message d'erreur en javascript.
 			echo "alert('WRONG INFORMATION')"; // Affiche une alerte.
 			echo "</script>"; // Fin du script.

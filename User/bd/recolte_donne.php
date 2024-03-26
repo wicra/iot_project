@@ -23,13 +23,14 @@ while (true) {
 
     // Exécution de la commande SQL
     if (mysqli_query($conn, $sql)) {
-        echo "Nouvelle valeur enregistrée : Température = $temperature, Humidité = $humidite<br>";
+        //Nouvelle valeur enregistrée 
+        echo "T= $temperature, H = $humidite<br>";
     } else {
         echo "Erreur lors de l'insertion des données : " . mysqli_error($conn);
     }
 
     // Attente de 2 secondes avant de générer de nouvelles données
-    sleep(10);
+    sleep(20);
 }
 
 // Fermeture de la connexion à la base de données (ce code ne sera jamais atteint dans une boucle infinie)
