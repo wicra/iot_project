@@ -1,10 +1,11 @@
 body {
 	margin: 0;
 	padding: 0;
-	font-family: sans-serif;
 	background: url() no-repeat;
 	background-size: cover;
+	font-family : "DotGothic16", sans-serif ;
 }
+
 
 .login-box {
 	width: 280px;

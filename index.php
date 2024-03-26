@@ -42,10 +42,9 @@
         </div>
 
         <div class="bouton">
-            <a href="../Admin/formulaire_connection.php">
-                <button class="btn-23">
-                    <span class="text">Me</span>
-                    <span aria-hidden="" class="marquee">CONNECTER</span>
+            <a href="Connection/formulaire_connection.php">
+                <button>
+                    me connecter
                 </button>
             </a>
 
