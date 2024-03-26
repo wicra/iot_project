@@ -21,8 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Vérifie si la méthode de requê
 	foreach($users as $user) { // Boucle à travers les utilisateurs récupérés.
 
 		if(($user['username'] == $username) && ($user['password'] == $password)) { // Vérifie si le nom d'utilisateur et le mot de passe correspondent.
-			header("location: adminpage.php"); // Redirige vers la page d'administration.
+			header("location: ../Admin/adminpage.php"); // Redirige vers la page d'administration.
 		}
+
 		else { // Si les informations ne sont pas correctes.
 			echo "<script language='javascript'>"; // Affiche un message d'erreur en javascript.
 			echo "alert('WRONG INFORMATION')"; // Affiche une alerte.
@@ -31,5 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Vérifie si la méthode de requê
 		}
 	}
 }
+
+
 
 ?>

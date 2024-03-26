@@ -5,11 +5,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../User/app/chart.js"></script>
 
-    <link rel="stylesheet" href="../User/interface/styles/style.css">
+    <!-- ICON-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="adminpage.css">
 </head>
 <body>
     
-    <h1>ADMIN</h1>
+    <!-- NAV BARRE -->
+    <header>
+        <div class="nav-barre">
+            <a class="connection" href="Connection/formulaire_connection.php">
+                <i class="fa-solid fa-user"></i>
+                <h2>Admin</h2>
+            </a>            
+
+        </div>        
+    </header>
 
     <!-- Affichage du graphique -->
     <div class="graphique">
