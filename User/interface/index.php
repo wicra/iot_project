@@ -41,7 +41,7 @@
             $(document).ready(function() {
                 function fetchData() {
                     $.ajax({
-                        url: '../bd/affichage-donne.php', // Chemin vers le script PHP qui récupère les données
+                        url: '../../bd/affichage-donne.php', // Chemin vers le script PHP qui récupère les données
                         method: 'GET',
                         success: function(response) {
                             $('#data').html(response); // Mettre à jour le contenu de la zone de données
