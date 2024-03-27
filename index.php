@@ -18,7 +18,7 @@
         <!-- NAV BARRE -->
         <header>
             <div class="nav-barre">
-                <a class="connection" href="../Connection/formulaire_connection.php">
+                <a class="connection" href="Connection/formulaire_connection.php">
                     <i class="fa-solid fa-user"></i>
                 </a>            
 
