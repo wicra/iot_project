@@ -70,6 +70,7 @@ header{
 }
 .acceuill h2{
     font-size: 25px;
+    text-transform: uppercase;
 }
 
 /*BOUTON*/
@@ -88,7 +89,9 @@ button {
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    padding: 2vh 4vw;
+    padding: 3vh 7vw;
+    border-radius: 0.5em;
+
   }
   
   button:active {

@@ -27,7 +27,7 @@
                     <li><h2>IOT PROJET</h2></li>
                     <li><h2>Wicra</h2></li>
                     <li><h2>Reine</h2></li>
-                    <li><h2>Elyas</h2></li>
+                    <li><h2>Elias</h2></li>
                 </ul>
  
             </div>

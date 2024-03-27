@@ -5,12 +5,20 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="app/chart.js"></script>
 
-        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
     </head>
     <body>
 
+    <style>
+
+
+    </style>
         <!-- CONNECTION ADMIN -->
-        <a href="../../Admin/formulaire_connection.php">ADMIN</a>
+        <a href="../../Admin/formulaire_connection.php">User</a>
 
 
 
@@ -18,6 +26,7 @@
         <div id="data">
             <!-- Les données seront affichées ici -->
         </div>
+        
 
         <script>
             $(document).ready(function() {

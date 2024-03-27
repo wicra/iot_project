@@ -30,8 +30,11 @@
         $temperature = $row["temperature"];
         $humidite = $row["humidite"];
 
+
+        $classeTemperature = "temperature";
+        $classeHumidite = "temperature";
         // Affichage des données
-        echo "Dernière mesure : Température = $temperature °C, Humidité = $humidite %";
+        echo "<div class=\"$classeTemperature\">$temperature C°</div> " . "<div class=\"$classeHumidite\">$humidite %</div> ";
     } else {
         // Cas où aucune donnée n'est trouvée
         echo "Aucune donnée trouvée.";
@@ -40,4 +43,3 @@
     // Fermeture de la connexion à la base de données
     mysqli_close($conn);
 ?>
-
