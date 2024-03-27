@@ -2,13 +2,12 @@ body{
     font-family : "DotGothic16", sans-serif ;
 }
 
-
-/*Utilisateur*/
+/*HEADER*/
 .user{
     padding: 2vh 10vw;
     display: flex;
     justify-content:space-between ;
-    background-color: rgb(209, 209, 30);
+    background-color: rgb(219, 121, 30);
     border-radius: 0.5rem;
 }
 .user_connecter{
@@ -24,8 +23,6 @@ body{
     margin-right: 1vw;
     font-size: 30px;
 }
-
-
 
 
 /*Donne*/
