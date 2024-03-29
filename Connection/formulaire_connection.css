@@ -1,4 +1,5 @@
 body {
+	background-color: #212121;
 	margin: 0;
 	padding: 0;
 	background: url() no-repeat;
@@ -6,20 +7,19 @@ body {
 	font-family : "DotGothic16", sans-serif ;
 }
 
-
 .login-box {
 	width: 280px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	color: #000;
+	color: #fff;
 }
 
 .login-box h1 {
 	float: left;
 	font-size: 40px;
-	border-bottom: 4px solid #000;
+	border-bottom: 4px solid #fff;
 	margin-bottom: 50px;
 	padding: 13px;
 }
@@ -30,7 +30,7 @@ body {
 	font-size: 20px;
 	padding: 8px 0;
 	margin: 8px 0;
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid #fff;
 }
 
 .fa-solid {
@@ -64,16 +64,4 @@ body {
 .button:active {
     box-shadow: inset -1px -1px #fff, inset 1px 1px #292929, inset -2px -2px #ffffff, inset 2px 2px rgb(158, 158, 158);
 }
-/*
-.button {
-	width: 100%;
-	padding: 8px;
-	color: #ffffff;
-	background: none #000;
-	border: none;
-	border-radius: 6px;
-	font-size: 18px;
-	cursor: pointer;
-	margin: 12px 0;
-}
-*/
+

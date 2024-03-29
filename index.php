@@ -4,17 +4,19 @@
         <title>Actualisation des données en temps réel</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-        <!-- ICON-->
+        <!-- ICON -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+        <!-- CSS -->
         <link rel="stylesheet" href="style.css">
 
+        <!-- FONT -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
     </head>
-    <body>
 
+    <body>
         <!-- NAV BARRE -->
         <header>
             <div class="nav-barre">
@@ -29,7 +31,6 @@
                         <li><h2>Reine</h2></li>
                         <li><h2>Elias</h2></li>
                     </ul>
-    
                 </div>
             </div>        
         </header>
@@ -43,15 +44,9 @@
 
             <div class="bouton">
                 <a href="Connection/formulaire_connection.php">
-                    <button>
-                        me connecter
-                    </button>
+                    <button>me connecter</button>
                 </a>
-
             </div>
-
         </main>
-
-
     </body>
 </html>

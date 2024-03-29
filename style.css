@@ -1,5 +1,6 @@
 body{
     font-family : "DotGothic16", sans-serif ;
+    background: #212121;
 }
 
 main{
@@ -12,6 +13,7 @@ header{
     align-items: center;
     padding: 0 4vw;
 }
+
 .nav-barre{
     display: flex;
     justify-content: center;
@@ -23,14 +25,14 @@ header{
     width: 15%;
     margin-left: 2px;
 }
+
 .connection i {
     font-size: 19px;
     padding: 2vh;
-    background-color: #ffffff;
-    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    background: #212121;
+    box-shadow: 15px 15px 30px rgb(25, 25, 25),-15px -15px 30px rgb(60, 60, 60);
     border-radius: 0.5em;
-    color: black;
-    
+    color: white;
 }
 
 .titre{
@@ -39,21 +41,22 @@ header{
     align-items: center;
     text-align: center;
 }
+
 .titre ul{
-    background-color: #ffffff;
-    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    background: #212121;
+    box-shadow: 15px 15px 30px rgb(25, 25, 25),-15px -15px 30px rgb(60, 60, 60);
     border-radius: 0.5em;
     align-items: center;
     display: flex;
     width: 100%;
 }
+
 .titre ul li{
     padding: 0 5vw;
     list-style: none;
-    
 }
-.titre h2{
 
+.titre h2{
     font-size: 20px;
     letter-spacing: 2;
     text-align: center;
@@ -68,6 +71,7 @@ header{
 .acceuill h1{
     font-size: 50px;
 }
+
 .acceuill h2{
     font-size: 25px;
     text-transform: uppercase;
@@ -79,6 +83,7 @@ header{
     justify-content: center;
     padding: 5vh 0;
 }
+
 button {
     font-family: inherit;
     border: none;
@@ -92,8 +97,8 @@ button {
     padding: 3vh 7vw;
     border-radius: 0.5em;
 
-  }
+}
   
-  button:active {
+button:active {
     box-shadow: inset -1px -1px #fff, inset 1px 1px #292929, inset -2px -2px #ffffff, inset 2px 2px rgb(158, 158, 158);
-  }
+}

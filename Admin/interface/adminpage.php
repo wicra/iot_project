@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
         <!-- CSS -->
-        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/adminpage.css">
 
         <!-- FONT -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,13 +26,13 @@
             <div class="user">
                 <a class="user_connecter" href="#">
                     <i class="fa-solid fa-user"></i>
-                    <h2>UTILISATEUR</h2>
+                    <h2>ADMIN</h2>
                 </a> 
 
                 <ul>
                     <a href="../../index.php">Deconnection</a>
                     <a href="">Projet</a>
-                    <a href="#">Donne</a>
+                    <a href="http://localhost/phpmyadmin/">Base-donnee</a>
                 </ul>
 
             </div>

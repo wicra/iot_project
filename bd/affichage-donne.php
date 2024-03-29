@@ -30,11 +30,31 @@
         $temperature = $row["temperature"];
         $humidite = $row["humidite"];
 
-
         $classeTemperature = "temperature";
         $classeHumidite = "temperature";
+        $classeTemperatureTitre = "temperatureTitre";
+        $classeHumiditeTitre = "temperatureTitre";
+        $classeTemperatureValeur = "temperatureValeur";
+        $classeHumiditeValeur = "temperatureValeur";
+        $classeUnite = "classeUnite";
+
+        $classeIconTemperature = "fa-solid fa-temperature-three-quarters";
+        $classeIconHumidite = "fa-solid fa-droplet"; 
         // Affichage des données
-        echo "<div class=\"$classeTemperature\">$temperature C°</div> " . "<div class=\"$classeHumidite\">$humidite %</div> ";
+        echo "<div class=\"$classeTemperature\">
+                <div class=\"$classeTemperatureTitre\">Temperature Actu</div>
+                <div class=\"$classeTemperatureValeur\">
+                    $temperature <span class=\" $classeUnite\">C°</span> 
+                    <i class=\"$classeIconTemperature\"></i>
+                </div>
+              </div> " . 
+             "<div class=\"$classeHumidite\">
+                <div class=\"$classeHumiditeTitre\">Humidite Actu</div>
+                <div class=\"$classeHumiditeValeur\">
+                    $humidite <span class=\" $classeUnite\">%</span>
+                    <i class=\"$classeIconHumidite\"></i>
+                </div>
+             </div> ";
     } else {
         // Cas où aucune donnée n'est trouvée
         echo "Aucune donnée trouvée.";
