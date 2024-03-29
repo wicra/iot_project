@@ -50,12 +50,16 @@
             </div>
         </div>
 
-        <!-- SCRIPT AJAX VALEUR TEMPS REEL-->
+
+        <!-- **************************************************************
+        **********           SCRIPT AJAX VALEUR TEMPS REEL          *******
+        ***************************************************************** -->
         <script>
+            // POUR LES DATA
             $(document).ready(function() {
                 function fetchData() {
                     $.ajax({
-                        url: '../../bd/affichage-donne.php', // Chemin vers le script PHP qui récupère les données
+                        url: '../../Bd/affichage-donne.php',
                         method: 'GET',
                         success: function(response) {
                             $('#data').html(response); // Mettre à jour le contenu de la zone de données
@@ -69,13 +73,36 @@
                         }
                     });
                 }
-
-                // Appel initial pour démarrer la récupération des données
                 fetchData();
             });
+        
+            
+            // POUR LES CHART
+            function fetchChartjs() {
+                $.ajax({
+                    url: '../../Bd/recuperation_donne_chart.php', 
+                    type: 'GET', 
+                    dataType: 'json', 
+                    success: function(data) {
+                        // Mettre à jour les données du graphique avec les données reçues
+                        myChart.data.labels = data.historique;
+                        myChart.data.datasets[0].data = data.temperature;
+                        myChart.data.datasets[1].data = data.humidite;
+                        myChart.update(); // Mettre à jour le graphique
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Erreur AJAX: ' + status, error);
+                    }
+                });
+            }
+
+            setInterval(fetchChartjs, 2000); 
         </script>
 
-        <!-- SCRIPT RECUPERATION DE DONNEE SQL POUR CHART -->
+
+        <!-- **************************************************************
+        **********   SCRIPT RECUPERATION DE DONNEE SQL POUR CHART   *******
+        ***************************************************************** -->
         <?php
             $hostname = "localhost";
             $username = "root";
@@ -85,18 +112,8 @@
             // Connexion à la base de données
             $con = mysqli_connect($hostname, $username, $password, $database);
 
-            // Vérification de la connexion
-            if (!$con) {
-                die("Connection échouée : " . mysqli_connect_error());
-            }
-
             // Requête pour afficher les valeurs à partir de la date limite
             $req = mysqli_query($con, "SELECT temperature, humidite, historique FROM mesure ");
-
-            // Vérification de la réussite de la requête
-            if (!$req) {
-                die("Erreur dans la requête : " . mysqli_error($con));
-            }
 
             // Initialisation des tableaux
             $temperature = [];
@@ -110,6 +127,7 @@
                 $historique[] = $data["historique"];
             }
         ?>
+
 
         <!-- CHARTJS SCRIPT AFFICHAGE-->
         <script>
