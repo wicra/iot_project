@@ -2,9 +2,12 @@ body {
 	background-color: #212121;
 	margin: 0;
 	padding: 0;
-	background: url() no-repeat;
-	background-size: cover;
 	font-family : "DotGothic16", sans-serif ;
+}
+
+input:focus { /*Couleur de la valeur saisie*/
+	color: white;
+  
 }
 
 .login-box {
@@ -49,6 +52,7 @@ body {
 }
 
 .button {
+	width: 100%;
     font-family: inherit;
     border: none;
     outline: 1px dotted rgb(37, 37, 37);

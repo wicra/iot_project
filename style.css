@@ -60,6 +60,7 @@ header{
     font-size: 20px;
     letter-spacing: 2;
     text-align: center;
+    color: #fff;
 }
 
 /*ACCEUILL*/
@@ -70,11 +71,13 @@ header{
 
 .acceuill h1{
     font-size: 50px;
+    color: white;
 }
 
 .acceuill h2{
     font-size: 25px;
     text-transform: uppercase;
+    color: white;
 }
 
 /*BOUTON*/
@@ -85,6 +88,7 @@ header{
 }
 
 button {
+    color: #fff;
     font-family: inherit;
     border: none;
     outline: 1px dotted rgb(37, 37, 37);
