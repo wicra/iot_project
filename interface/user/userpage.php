@@ -1,3 +1,41 @@
+<?php
+/////////////////////////////////////////////////////////
+//                        SESSION                     //
+/////////////////////////////////////////////////////////
+
+session_start();
+// Verif si user connecter si la variable $_SESSION comptien le username 
+if(!isset($_SESSION["username"])){
+    header("location: ./../connection/formulaire_connection.php");
+exit(); 
+}
+
+// déconnection
+if(isset($_POST['deconnection'])){
+    session_destroy();
+    header('location: ./../connection/formulaire_connection.php');
+}
+
+/////////////////////////////////////////////////////////
+//                  RECUP DONNE CHART                  //
+///////////////////////////////////////////////////////// 
+
+include('./../connection/connection_db.php');
+$req = mysqli_query($conn, "SELECT temperature, humidite, historique FROM mesure ");
+
+// Initialisation des tableaux
+$temperature = [];
+$humidite = [];
+$historique = [];
+
+// Boucle pour mettre les données dans les tableaux
+while ($data = mysqli_fetch_assoc($req)) {
+    $temperature[] = $data['temperature'];
+    $humidite[] = $data["humidite"];
+    $historique[] = $data["historique"];
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,7 +47,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
         <!-- CSS -->
-        <link rel="stylesheet" href="styles/adminpage.css">
+        <link rel="stylesheet" href="./../styles/userpage.css">
 
         <!-- FONT -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,11 +64,13 @@
             <div class="user">
                 <a class="user_connecter" href="#">
                     <i class="fa-solid fa-user"></i>
-                    <h2>ADMIN</h2>
+                    <h2><?php echo $_SESSION["username"] ?></h2>
                 </a> 
 
                 <ul>
-                    <a href="../../index.php">Deconnection</a>
+                    <form  method='POST'>
+                        <button type='submit' name='deconnection' style="font-family : 'DotGothic16' ; background-color: #212121; border:none ; color:white ;font-size: 18px;"  >Deconnection</button>
+                    </form>
                     <a href="">Projet</a>
                     <a href="http://localhost/phpmyadmin/">Base-donnee</a>
                 </ul>
@@ -51,15 +91,17 @@
         </div>
 
 
-        <!-- **************************************************************
-        **********           SCRIPT AJAX VALEUR TEMPS REEL          *******
-        ***************************************************************** -->
+        <!--***********************************************************
+        **********        SCRIPT AJAX VALEUR TEMPS REEL          *******
+        *************************************************************-->
         <script>
-            // POUR LES DATA
+            /////////////////////////////////////////////////////////
+            //                    POUR LES DONNEES                 //
+            /////////////////////////////////////////////////////////
             $(document).ready(function() {
                 function fetchData() {
                     $.ajax({
-                        url: '../../Bd/affichage-donne.php',
+                        url: './../../db/recuperation_donnee_mesure.php',
                         method: 'GET',
                         success: function(response) {
                             $('#data').html(response); // Mettre à jour le contenu de la zone de données
@@ -75,62 +117,36 @@
                 }
                 fetchData();
             });
-        
+
+            /////////////////////////////////////////////////////////
+            //                     POUR LES CHART                  //
+            ///////////////////////////////////////////////////////// 
             
-            // POUR LES CHART
-            function fetchChartjs() {
-                $.ajax({
-                    url: '../../Bd/recuperation_donne_chart.php', 
-                    type: 'GET', 
-                    dataType: 'json', 
-                    success: function(data) {
-                        // Mettre à jour les données du graphique avec les données reçues
-                        myChart.data.labels = data.historique;
-                        myChart.data.datasets[0].data = data.temperature;
-                        myChart.data.datasets[1].data = data.humidite;
-                        myChart.update(); // Mettre à jour le graphique
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Erreur AJAX: ' + status, error);
-                    }
-                });
-            }
+            $(document).ready(function() {
+                function fetchChartData() {
+                    $.ajax({
+                        url: './../../db/recuperation_donnee_chart.php',
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                            // Mettre à jour les données du graphique avec les données reçues
+                            myChart.data.labels = data.historique;
+                            myChart.data.datasets[0].data = data.temperature;
+                            myChart.data.datasets[1].data = data.humidite;
+                            myChart.update(); // Mettre à jour le graphique
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Erreur AJAX: ' + status, error);
+                        }
+                    });
+                }
+                setInterval(fetchChartData, 1000);
+            });
 
-            setInterval(fetchChartjs, 2000); 
-        </script>
+            /////////////////////////////////////////////////////////
+            //              CHARTJS SCRIPT AFFICHAGE               //
+            /////////////////////////////////////////////////////////
 
-
-        <!-- **************************************************************
-        **********   SCRIPT RECUPERATION DE DONNEE SQL POUR CHART   *******
-        ***************************************************************** -->
-        <?php
-            $hostname = "localhost";
-            $username = "root";
-            $password = "";
-            $database = "iot_bd";
-
-            // Connexion à la base de données
-            $con = mysqli_connect($hostname, $username, $password, $database);
-
-            // Requête pour afficher les valeurs à partir de la date limite
-            $req = mysqli_query($con, "SELECT temperature, humidite, historique FROM mesure ");
-
-            // Initialisation des tableaux
-            $temperature = [];
-            $humidite = [];
-            $historique = [];
-
-            // Boucle pour mettre les données dans les tableaux
-            while ($data = mysqli_fetch_assoc($req)) {
-                $temperature[] = $data['temperature'];
-                $humidite[] = $data["humidite"];
-                $historique[] = $data["historique"];
-            }
-        ?>
-
-
-        <!-- CHARTJS SCRIPT AFFICHAGE-->
-        <script>
             Chart.defaults.borderColor = '#fff';
             Chart.defaults.color = '#ffff';
             Chart.defaults.font.size = 18;

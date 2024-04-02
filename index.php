@@ -20,7 +20,7 @@
         <!-- NAV BARRE -->
         <header>
             <div class="nav-barre">
-                <a class="connection" href="Connection/formulaire_connection.php">
+                <a class="connection" href="./interface/connection/formulaire_connection.php">
                     <i class="fa-solid fa-user"></i>
                 </a>            
 
@@ -43,8 +43,8 @@
             </div>
 
             <div class="bouton">
-                <a href="Connection/formulaire_connection.php">
-                    <button>me connecter</button>
+                <a href="./interface/connection/formulaire_connection.php">
+                    <button>M'inscrire</button>
                 </a>
             </div>
         </main>

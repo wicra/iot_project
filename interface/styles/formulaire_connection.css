@@ -7,7 +7,6 @@ body {
 
 input:focus { /*Couleur de la valeur saisie*/
 	color: white;
-  
 }
 
 .login-box {
