@@ -18,11 +18,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 
     // Requête SQL pour vérifier l'utilisateur dans la table identifiant.
-    $stmt = $conn->prepare("SELECT * FROM identifiant WHERE username = ? AND password = ?");
-    $stmt->execute([$username, $password]); // Exécute la requête avec les paramètres.
-    $user = $stmt->fetch(); // Récupère le premier résultat de la requête.
+	$sql = "SELECT * FROM identifiant WHERE username = '$username' AND password = '$password'";
+	$result  = mysqli_query($conn, $sql);
 
-    if ($user) {
+    if (mysqli_num_rows($result) > 0) {
+		$user = mysqli_fetch_assoc($result);
+
 		$_SESSION['username'] = $username ;
 		$_SESSION['password'] = $password ;
 		
