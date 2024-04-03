@@ -63,7 +63,7 @@ while ($data = mysqli_fetch_assoc($req)) {
             <div class="user">
                 <a class="user_connecter" href="#">
                     <i class="fa-solid fa-user"></i>
-                    <h2><?php echo $_SESSION["username"] ?></h2>
+                    <h1><?php echo $_SESSION["username"] ?></h1>
                 </a> 
 
                 <ul>
@@ -77,15 +77,19 @@ while ($data = mysqli_fetch_assoc($req)) {
             </div>
         </header>
 
-        <!-- INTERFACE -->
-        <div id="data">
-            <!-- Les données seront affichées ici -->
-        </div>
+        <div class="contenaire-interface">
+            <div class="interface">
+                <!-- INTERFACE -->
+                <div id="data">
+                    <!-- Les données seront affichées ici -->
+                </div>
 
-        <!-- CHART -->
-        <div class="historique">
-            <div class="graphique">
-                <canvas id="graphique" aria-laber role="img" > </canvas>
+                <!-- CHART -->
+                <div class="historique">
+                    <div class="graphique">
+                        <canvas id="graphique" aria-laber role="img" > </canvas>
+                    </div>
+                </div>
             </div>
         </div>
 

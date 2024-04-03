@@ -62,8 +62,8 @@ while ($data = mysqli_fetch_assoc($req)) {
         <header>
             <div class="user">
                 <a class="user_connecter" href="#">
-                    <i class="fa-solid fa-user"></i>
-                    <h2><?php echo $_SESSION["username"] ?></h2>
+                    <i class="fa-solid fa-user-tie"></i>
+                    <h1><?php echo $_SESSION["username"] ?></h1>
                 </a> 
 
                 <ul>
@@ -78,17 +78,26 @@ while ($data = mysqli_fetch_assoc($req)) {
         </header>
 
         <!-- INTERFACE -->
-        <div id="data">
-            <!-- Les données seront affichées ici -->
-        </div>
+        <div class="contenaire-interface">
+            <div class="interface">
+                <!-- INTERFACE -->
+                <div id="data">
+                    <!-- Les données seront affichées ici -->
+                </div>
 
-        <!-- CHART -->
-        <div class="historique">
-            <div class="graphique">
-                <canvas id="graphique" aria-laber role="img" > </canvas>
+                <!-- CHART -->
+                <div class="historique">
+                    <div class="graphique">
+                        <canvas id="graphique" aria-laber role="img" > </canvas>
+                    </div>
+                </div>
             </div>
         </div>
 
+        <!-- ALERT -->
+        <div id="contenenaire_error">
+            
+        </div>
 
         <!--***********************************************************
         **********        SCRIPT AJAX VALEUR TEMPS REEL          *******
@@ -141,6 +150,31 @@ while ($data = mysqli_fetch_assoc($req)) {
                 }
                 setInterval(fetchChartData, 1000);
             });
+
+            /////////////////////////////////////////////////////////
+            //                     POUR LES ALERT                  //
+            ///////////////////////////////////////////////////////// 
+            
+            $(document).ready(function() {
+                function fetchData() {
+                    $.ajax({
+                        url: './../../db/alert.php',
+                        method: 'GET',
+                        success: function(response) {
+                            $('#contenenaire_error ').html(response); // Mettre à jour le contenu de la zone de données                            
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Erreur lors de la récupération des données:', error);
+                        },
+                        complete: function() {
+                            // Répéter le processus toutes les 2 secondes
+                            setTimeout(fetchData, 20000);
+                        }
+                    });
+                }
+                fetchData(); 
+            });
+            
 
             /////////////////////////////////////////////////////////
             //              CHARTJS SCRIPT AFFICHAGE               //
