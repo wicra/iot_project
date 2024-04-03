@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,6 +81,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				</div>
 
 				<input class="button" type="submit" name="login" value="Connection">
+
+				<div class="lien-inscription">
+					<a href="./../../index.php"><i class="fa-solid fa-circle-arrow-left"></i></a>					
+					<a href="formulaire_inscription.php">crée un compte</a>					
+				</div>
 			</div>
 		</form>
 	</body>

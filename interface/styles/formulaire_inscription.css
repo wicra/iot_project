@@ -1,0 +1,153 @@
+body {
+	background-color: #212121;
+	margin: 0;
+	padding: 0;
+	font-family : "DotGothic16", sans-serif ;
+}
+
+input:focus { /*Couleur de la valeur saisie*/
+	color: white;
+}
+
+.login-box {
+	width: 280px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+}
+
+.login-box h1 {
+	float: left;
+	font-size: 40px;
+	border-bottom: 4px solid #fff;
+	margin-bottom: 50px;
+	padding: 13px;
+}
+
+.textbox {
+	width: 100%;
+	overflow: hidden;
+	font-size: 20px;
+	padding: 8px 0;
+	margin: 8px 0;
+	border-bottom: 1px solid #fff;
+}
+
+.fa-solid {
+	width: px;
+	float: left;
+	text-align: center;
+}
+
+.textbox input {
+	border: none;
+	outline: none;
+	background: none;
+	font-size: 18px;
+	float: left;
+	margin: 0 10px;
+}
+
+.button {
+	width: 100%;
+    font-family: inherit;
+    border: none;
+    outline: 1px dotted rgb(37, 37, 37);
+    outline-offset: -4px;
+    background: hsl(0deg 0% 75%);
+    box-shadow: inset -1px -1px #292929, inset 1px 1px #fff, inset -2px -2px rgb(158, 158, 158), inset 2px 2px #ffffff;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+	margin: 3vh 0;
+    padding: 2vh 4vw;
+}
+
+.button:active {
+    box-shadow: inset -1px -1px #fff, inset 1px 1px #292929, inset -2px -2px #ffffff, inset 2px 2px rgb(158, 158, 158);
+}
+
+.lien-connection{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 3vh 0;
+	width: 100%;
+	text-align: center;
+}
+
+.lien-connection a{
+	color: #fff;
+}
+
+.lien-connection a i{
+	font-size: 30px;
+}
+
+/*CHECKBOX ADMIN CUSTOM*/
+
+.custom-checkbox {
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+	user-select: none;
+	font-size: 16px;
+	color: #333;
+	transition: color 0.3s;
+}
+
+.custom-checkbox input[type="checkbox"] {
+	display: none;
+}
+
+.custom-checkbox .checkmark {
+	width: 24px;
+	height: 24px;
+	border: 2px solid #333;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 10px;
+	transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+	transform-style: preserve-3d;
+}
+
+.custom-checkbox .checkmark::before {
+	content: "\2713";
+	font-size: 16px;
+	color: transparent;
+	transition: color 0.3s, transform 0.3s;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+	background-color: #74e01c;
+	border-color: #74e01c;
+	transform: scale(1.1) rotateZ(360deg) rotateY(360deg);
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkmark::before {
+	color: #fff;
+}
+
+.custom-checkbox:hover {
+	color: #74e01c;
+}
+
+.custom-checkbox:hover .checkmark {
+	border-color: #74e01c;
+	background-color: #f0f0f0;
+	transform: scale(1.05);
+}
+
+.custom-checkbox input[type="checkbox"]:focus + .checkmark {
+	box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.2);
+	outline: none;
+}
+
+.custom-checkbox .checkmark,
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+	transition: background-color 1.3s, border-color 1.3s, color 1.3s, transform 0.3s;
+}

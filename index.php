@@ -43,7 +43,7 @@
             </div>
 
             <div class="bouton">
-                <a href="./interface/connection/formulaire_connection.php">
+                <a href="./interface/connection/formulaire_inscription.php">
                     <button>M'inscrire</button>
                 </a>
             </div>
