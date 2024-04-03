@@ -70,8 +70,8 @@ while ($data = mysqli_fetch_assoc($req)) {
                     <form  method='POST'>
                         <button type='submit' name='deconnection' style="font-family : 'DotGothic16' ; background-color: #212121; border:none ; color:white ;font-size: 18px;"  >Deconnection</button>
                     </form>
-                    <a href="">Projet</a>
-                    <a href="http://localhost/phpmyadmin/">Base-donnee</a>
+                    <a href="./avantage/vidange_donne_mesure.php">vider-historique</a>
+                    <a href="./avantage/suppression_utilisateur.php">supprimer-utilisateur</a>
                 </ul>
 
             </div>
