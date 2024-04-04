@@ -1,17 +1,35 @@
 <?php
 /////////////////////////////////////////////////////////
-//           CONDITION AJOUT UTILISATEUR               //
+//                        SESSION                     //
 /////////////////////////////////////////////////////////
 
-include('./connection_db.php');
+session_start();
+// Verif si user connecter si la variable $_SESSION comptien le username 
+if(!isset($_SESSION["username"])){
+    header("location: ./connection/formulaire_connection.php");
+exit(); 
+}
+
+// déconnection
+if(isset($_POST['deconnection'])){
+    session_destroy();
+    header('location: ./connection/formulaire_connection.php');
+}
+
+/////////////////////////////////////////////////////////
+//         CONDITION AJOUT UTILISATEUR & ADMIN         //
+/////////////////////////////////////////////////////////
+
+include('./../connection/connection_db.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $username = htmlspecialchars(trim($_POST["username"])); // Nettoie et récupère le nom d'utilisateur.
     $password = sha1(htmlspecialchars(trim($_POST["password"]))); // Nettoie et récupère le mot de passe crypté
+    $estAdmin = isset($_POST["estAdmin"]) ? 1 : 0; // Vérifie si l'utilisateur est un administrateur
 
     // Requête SQL pour insérer l'utilisateur dans la table identifiant.
-    $sql = "INSERT INTO identifiant (username, password) VALUES ('$username', '$password')";
+    $sql = "INSERT INTO identifiant (username, password, est_admin) VALUES ('$username', '$password', $estAdmin)";
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
@@ -34,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Formulaire d'Inscription User</title>
+    <title>Formulaire d'Inscription Admin</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="./../styles/formulaire_inscription.css">
@@ -63,6 +81,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="password" placeholder="Mot de passe" name="password" required>
         </div>
         
+        <div class="textbox">
+            <label class="custom-checkbox">
+                <input id="estAdmin" name="estAdmin" type="checkbox">
+                <span class="checkmark"></span>
+            </label>      
+            <label for="estAdmin">Admin</label>
+        </div>
+
         <input class="button" type="submit" name="login" value="Inscription">
 
         <div class="lien-connection">

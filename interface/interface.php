@@ -87,8 +87,9 @@ while ($data = mysqli_fetch_assoc($req)) {
                                 <form  method='POST'>
                                     <button type='submit' name='deconnection' style=\"font-family: 'DotGothic16'; background-color: #212121; border:none; color:white; font-size: 18px;\">Deconnexion</button>
                                 </form>
-                                <a href='/interface/avantage_admin/vidange_donne_mesure.php'>vider-historique</a>
-                                <a href='/interface/avantage_admin/suppression_utilisateur.php'>supprimer-utilisateur</a>
+                                <a href='./avantage_admin/formulaire_inscription_admin.php'>ajout-admin</a>
+                                <a href='./avantage_admin/vidange_donne_mesure.php'>vider-historique</a>
+                                <a href='./avantage_admin/suppression_utilisateur.php'>sup-utilisateur</a>
                             </ul>
                             ";
                             
