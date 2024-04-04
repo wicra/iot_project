@@ -27,12 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$_SESSION['username'] = $username ;
 		$_SESSION['password'] = $password ;
 		
-        // Redirige l'utilisateur en fonction de son statut d'administrateur.
-        if ($user['est_admin']) {
-            header("location: ./../admin/adminpage.php");
-        } else {
-            header("location: ./../user/userpage.php");
-        }
+		header("location: ./../interface.php");
         exit(); 
     } else {
         header("location: formulaire_connection.php");

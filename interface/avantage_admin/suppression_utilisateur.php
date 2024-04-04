@@ -1,5 +1,23 @@
 <?php
-include('./../../connection/connection_db.php');
+/////////////////////////////////////////////////////////
+//                        SESSION                     //
+/////////////////////////////////////////////////////////
+
+session_start();
+// Verif si user connecter si la variable $_SESSION comptien le username 
+if(!isset($_SESSION["username"])){
+    header("location: ./connection/formulaire_connection.php");
+exit(); 
+}
+
+// déconnection
+if(isset($_POST['deconnection'])){
+    session_destroy();
+    header('location: ./connection/formulaire_connection.php');
+}
+
+
+include('./../connection/connection_db.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $valeurASupprimer = htmlspecialchars(trim($_POST["username"]));
@@ -11,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result) {
         // L'utilisateur a été supprimer avec succès
-        header("location: ./../../connection/formulaire_connection.php");
+        header("location: ./../connection/formulaire_connection.php");
         exit();
     } else {
         // Une erreur s'est produite lors de l'ajout de l'utilisateur
@@ -31,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<title>Formulaire de Connection</title>
 
 		<!-- CSS FORMULAIRE DE CONNECTION CAR MEME DESIGN -->
-		<link rel="stylesheet" href="./../../styles/formulaire_connection.css">
+		<link rel="stylesheet" href="./../styles/formulaire_connection.css">
 
 		<!-- FONT -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">

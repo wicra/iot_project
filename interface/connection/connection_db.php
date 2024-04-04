@@ -1,4 +1,9 @@
 <?php
+$servername = "sql.freedb.tech"; 
+$port = '3306' ;
+$dbname = "freedb_iot_db";  
+$username = "freedb_eleve"; 
+$password = "FGv86P&Qg#UJ&r$";  
 
 /*
 $servername = "localhost"; 

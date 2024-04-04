@@ -6,21 +6,21 @@
 session_start();
 // Verif si user connecter si la variable $_SESSION comptien le username 
 if(!isset($_SESSION["username"])){
-    header("location: ./../connection/formulaire_connection.php");
+    header("location: ./connection/formulaire_connection.php");
 exit(); 
 }
 
 // déconnection
 if(isset($_POST['deconnection'])){
     session_destroy();
-    header('location: ./../connection/formulaire_connection.php');
+    header('location: ./connection/formulaire_connection.php');
 }
 
 /////////////////////////////////////////////////////////
 //                  RECUP DONNE CHART                  //
 ///////////////////////////////////////////////////////// 
 
-include('./../connection/connection_db.php');
+include('./connection/connection_db.php');
 $req = mysqli_query($conn, "SELECT temperature, humidite, historique FROM mesure ");
 
 // Initialisation des tableaux
@@ -34,6 +34,8 @@ while ($data = mysqli_fetch_assoc($req)) {
     $humidite[] = $data["humidite"];
     $historique[] = $data["historique"];
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +48,7 @@ while ($data = mysqli_fetch_assoc($req)) {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
         <!-- CSS -->
-        <link rel="stylesheet" href="./../styles/adminpage.css">
+        <link rel="stylesheet" href="./styles/interface.css">
 
         <!-- FONT -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,6 +61,8 @@ while ($data = mysqli_fetch_assoc($req)) {
 
     <body>
         <!-- NAV BARRE -->
+        
+        
         <header>
             <div class="user">
                 <a class="user_connecter" href="#">
@@ -66,13 +70,47 @@ while ($data = mysqli_fetch_assoc($req)) {
                     <h1><?php echo $_SESSION["username"] ?></h1>
                 </a> 
 
-                <ul>
-                    <form  method='POST'>
-                        <button type='submit' name='deconnection' style="font-family : 'DotGothic16' ; background-color: #212121; border:none ; color:white ;font-size: 18px;"  >Deconnection</button>
-                    </form>
-                    <a href="./avantage/vidange_donne_mesure.php">vider-historique</a>
-                    <a href="./avantage/suppression_utilisateur.php">supprimer-utilisateur</a>
-                </ul>
+                <?php
+                    include('./connection/connection_db.php');
+                    
+                    // Assurez-vous que $_SESSION["username"] est protégé contre les injections SQL
+                    $username = mysqli_real_escape_string($conn, $_SESSION["username"]);
+
+                    $requete = "SELECT est_admin FROM identifiant WHERE username = '$username'";
+                    $result = mysqli_query($conn, $requete);
+
+                    if ($result) {
+                        $row = mysqli_fetch_assoc($result);
+                        if ($row['est_admin'] == 1) {
+                            echo "
+                            <ul>
+                                <form  method='POST'>
+                                    <button type='submit' name='deconnection' style=\"font-family: 'DotGothic16'; background-color: #212121; border:none; color:white; font-size: 18px;\">Deconnexion</button>
+                                </form>
+                                <a href='/interface/avantage_admin/vidange_donne_mesure.php'>vider-historique</a>
+                                <a href='/interface/avantage_admin/suppression_utilisateur.php'>supprimer-utilisateur</a>
+                            </ul>
+                            ";
+                            
+                        } else {
+                            echo "
+                            <ul>
+                                <form  method='POST'>
+                                    <button type='submit' name='deconnection' style=\"font-family: 'DotGothic16'; background-color: #212121; border:none; color:white; font-size: 18px;\">Deconnexion</button>
+                                </form>
+                                <a href='#'>assistance</a>
+                                <a href='#'>devenir_admin</a>
+                            </ul>
+                            ";
+                            
+                        }
+                    } else {
+                        echo 'Erreur dans la requête SQL : ' . mysqli_error($conn);
+                    }
+                ?>
+
+
+
 
             </div>
         </header>
@@ -109,7 +147,7 @@ while ($data = mysqli_fetch_assoc($req)) {
             $(document).ready(function() {
                 function fetchData() {
                     $.ajax({
-                        url: './../../db/recuperation_donnee_mesure.php',
+                        url: './../db/recuperation_donnee_mesure.php',
                         method: 'GET',
                         success: function(response) {
                             $('#data').html(response); // Mettre à jour le contenu de la zone de données
@@ -133,7 +171,7 @@ while ($data = mysqli_fetch_assoc($req)) {
             $(document).ready(function() {
                 function fetchChartData() {
                     $.ajax({
-                        url: './../../db/recuperation_donnee_chart.php',
+                        url: './../db/recuperation_donnee_chart.php',
                         type: 'GET',
                         dataType: 'json',
                         success: function(data) {
@@ -158,7 +196,7 @@ while ($data = mysqli_fetch_assoc($req)) {
             $(document).ready(function() {
                 function fetchData() {
                     $.ajax({
-                        url: './../../db/alert.php',
+                        url: './../db/alert.php',
                         method: 'GET',
                         success: function(response) {
                             $('#contenenaire_error ').html(response); // Mettre à jour le contenu de la zone de données                            
