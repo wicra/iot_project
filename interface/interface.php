@@ -65,10 +65,6 @@ while ($data = mysqli_fetch_assoc($req)) {
         
         <header>
             <div class="user">
-                <a class="user_connecter" href="#">
-                    <i class="fa-solid fa-user-tie"></i>
-                    <h1><?php echo $_SESSION["username"] ?></h1>
-                </a> 
 
                 <?php
                     include('./connection/connection_db.php');
@@ -78,11 +74,15 @@ while ($data = mysqli_fetch_assoc($req)) {
 
                     $requete = "SELECT est_admin FROM identifiant WHERE username = '$username'";
                     $result = mysqli_query($conn, $requete);
-
+                    $user_connect =$_SESSION["username"];
                     if ($result) {
                         $row = mysqli_fetch_assoc($result);
                         if ($row['est_admin'] == 1) {
                             echo "
+                            <a class=\"user_connecter\" href='#'>
+                                <i class=\"fa-solid fa-crown fa-bounce\" style=\"color: #FCDC12;\"></i>
+                                <h1>$user_connect</h1>
+                            </a> 
                             <ul>
                                 <form  method='POST'>
                                     <button type='submit' name='deconnection' style=\"font-family: 'DotGothic16'; background-color: #212121; border:none; color:white; font-size: 18px;\">Deconnexion</button>
@@ -95,6 +95,10 @@ while ($data = mysqli_fetch_assoc($req)) {
                             
                         } else {
                             echo "
+                            <a class=\"user_connecter\" href='#'>
+                                <i class=\"fa-solid fa-user fa-beat-fade\" style=\"color: #74e01c;\"></i>
+                                <h1>$user_connect</h1>
+                            </a> 
                             <ul>
                                 <form  method='POST'>
                                     <button type='submit' name='deconnection' style=\"font-family: 'DotGothic16'; background-color: #212121; border:none; color:white; font-size: 18px;\">Deconnexion</button>
