@@ -73,8 +73,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				<input class="button" type="submit" name="login" value="supprimer">
 
 				<div class="lien-inscription">
-					<a href="./../../../index.php"><i class="fa-solid fa-circle-arrow-left"></i></a>					
-					<a href="./../../connection/formulaire_connection.php">tester l'existance</a>					
+					<a href="/iot_projet"><i class="fa-solid fa-circle-arrow-left"></i></a>					
+					<a href="./../connection/formulaire_connection.php">tester l'existance</a>					
 				</div>
 			</div>
 		</form>
