@@ -19,7 +19,7 @@ if (mysqli_num_rows($result) > 0) {
     $humidite = $row["humidite"];
 
     if($temperature <20){
-        $message_temperature = "temperature resonnable";
+        $message_temperature = "temperature raisonnable";
             echo '
             <div id="error_temp_bas" class="error_message" data-id="error_temp_bas">
                 <div class="error__icon_temp_bas">
@@ -33,7 +33,7 @@ if (mysqli_num_rows($result) > 0) {
             
     }
     if($temperature >20){
-            $message_temperature = "temperature eleve";
+            $message_temperature = "temperature élevé";
             echo '
             <div id="error_temp_eleve" class="error_message" data-id="error_temp_eleve">
                 <div class="error__icon_temp_eleve">
@@ -46,7 +46,7 @@ if (mysqli_num_rows($result) > 0) {
             ';
     }
     if($humidite <20){
-            $message_humidite = "humidite resonnable";
+            $message_humidite = "humidite raisonnable";
             echo '
             <div id="error_humid_bas" class="error_message" data-id="error_humid_bas">
                 <div class="error__icon_humid_bas">
@@ -60,7 +60,7 @@ if (mysqli_num_rows($result) > 0) {
             
     }
     if($humidite >20){
-            $message_humidite = "humidite eleve";
+            $message_humidite = "humidite élevé";
             echo '
             <div id="error_humid_eleve" class="error_message" data-id="error_humid_eleve">
                 <div class="error__icon_humid_eleve">

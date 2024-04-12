@@ -41,7 +41,7 @@ while ($data = mysqli_fetch_assoc($req)) {
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Page/Admin</title>
+        <title>Interface Iot</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <!-- ICON -->

@@ -30,14 +30,14 @@ if (mysqli_num_rows($result) > 0) {
     $classeIconHumidite = "fa-solid fa-droplet"; 
     // Affichage des données
     echo "<div class=\"$classeTemperature\">
-            <div class=\"$classeTemperatureTitre\">Temperature Actu</div>
+            <div class=\"$classeTemperatureTitre\">Temperature Actuelle</div>
             <div class=\"$classeTemperatureValeur\">
                 $temperature <span class=\" $classeUnite\">C°</span> 
                 <i class=\"$classeIconTemperature\"></i>
             </div>
         </div> " . 
         "<div class=\"$classeHumidite\">
-            <div class=\"$classeHumiditeTitre\">Humidite Actu</div>
+            <div class=\"$classeHumiditeTitre\">Humidite Actuelle</div>
             <div class=\"$classeHumiditeValeur\">
                 $humidite <span class=\" $classeUnite\">%</span>
                 <i class=\"$classeIconHumidite\"></i>
