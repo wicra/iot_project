@@ -27,10 +27,7 @@ if (mysqli_num_rows($result) > 0) {
                 </div>
                 <div class="error__title_temp_bas">'. $message_temperature .'</div>
                 <div class="error__close_temp_bas close_button"><svg height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z" fill="#393a37"></path></svg></div>
-            </div>
-
-            ';
-            
+            </div>';
     }
     if($temperature >20){
             $message_temperature = "temperature élevé";
@@ -41,9 +38,7 @@ if (mysqli_num_rows($result) > 0) {
                 </div>
                 <div class="error__title_temp_eleve">'. $message_temperature .'</div>
                 <div class="error__close_temp_eleve close_button"><svg height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z" fill="#393a37"></path></svg></div>
-            </div>
-
-            ';
+            </div>';
     }
     if($humidite <20){
             $message_humidite = "humidite raisonnable";
@@ -54,10 +49,7 @@ if (mysqli_num_rows($result) > 0) {
                 </div>
                 <div class="error__title_humid_bas">'. $message_humidite .'</div>
                 <div class="error__close_humid_bas close_button"><svg height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z" fill="#393a37"></path></svg></div>
-            </div>
-
-            ';
-            
+            </div>';
     }
     if($humidite >20){
             $message_humidite = "humidite élevé";
@@ -68,11 +60,8 @@ if (mysqli_num_rows($result) > 0) {
                 </div>
                 <div class="error__title_humid_eleve">'. $message_humidite .'</div>
                 <div class="error__close_humid_eleve close_button"><svg height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z" fill="#393a37"></path></svg></div>
-            </div>
-
-            ';
+            </div>';
     }
-        
 };
 ?>
 

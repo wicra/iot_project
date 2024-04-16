@@ -63,8 +63,8 @@ input:focus { /*Couleur de la valeur saisie*/
     letter-spacing: 2px;
 	margin: 3vh 0;
     padding: 2vh 4vw;
-  }
-  
+}
+
 .button:active {
     box-shadow: inset -1px -1px #fff, inset 1px 1px #292929, inset -2px -2px #ffffff, inset 2px 2px rgb(158, 158, 158);
 }

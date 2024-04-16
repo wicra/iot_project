@@ -1,11 +1,9 @@
 <?php
-
 include('./connection_db.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	session_start();
-
 	if (!isset($_SESSION['est_admin'])) {
 		$_SESSION['count'] = 0;
 	} else {
@@ -15,15 +13,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = htmlspecialchars(trim($_POST["username"])); // Nettoie et récupère le nom d'utilisateur.
     $password = sha1(htmlspecialchars(trim($_POST["password"]))); // Nettoie et récupère le mot de pass cripté
 
-	
-
     // Requête SQL pour vérifier l'utilisateur dans la table identifiant.
 	$sql = "SELECT * FROM identifiant WHERE username = '$username' AND password = '$password'";
 	$result  = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
 		$user = mysqli_fetch_assoc($result);
-
 		$_SESSION['username'] = $username ;
 		$_SESSION['password'] = $password ;
 		
@@ -34,12 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit(); 
     };
 }
-
 ?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="fr">
 	<head>

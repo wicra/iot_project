@@ -17,7 +17,6 @@ if(isset($_POST['deconnection'])){
 }
 include('./../connection/connection_db.php');
 
-
 $tableName = 'mesure';
 
 $sql = "TRUNCATE TABLE $tableName";

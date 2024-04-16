@@ -16,7 +16,6 @@ if(isset($_POST['deconnection'])){
     header('location: ./connection/formulaire_connection.php');
 }
 
-
 include('./../connection/connection_db.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -39,7 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 	<head>

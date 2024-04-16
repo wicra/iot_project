@@ -44,58 +44,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Formulaire d'Inscription Admin</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Formulaire d'Inscription Admin</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="./../styles/formulaire_inscription.css">
+        <!-- CSS -->
+        <link rel="stylesheet" href="./../styles/formulaire_inscription.css">
 
-    <!-- FONT -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+        <!-- FONT -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
 
-    <!-- ICON-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
+        <!-- ICON-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
 
-<body>
-<form action="formulaire_inscription.php" method="post">
-    <div class="login-box">
-        <h1>Inscription</h1>
+    <body>
+    <form action="formulaire_inscription.php" method="post">
+        <div class="login-box">
+            <h1>Inscription</h1>
 
-        <div class="textbox">
-            <i class="fa-solid fa-user"></i>
-            <input type="text" placeholder="Nom d'utilisateur" name="username" required>
+            <div class="textbox">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" placeholder="Nom d'utilisateur" name="username" required>
+            </div>
+
+            <div class="textbox">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" placeholder="Mot de passe" name="password" required>
+            </div>
+            
+            <div class="textbox">
+                <label class="custom-checkbox">
+                    <input id="estAdmin" name="estAdmin" type="checkbox">
+                    <span class="checkmark"></span>
+                </label>      
+                <label for="estAdmin">Admin</label>
+            </div>
+
+            <input class="button" type="submit" name="login" value="Inscription">
+
+            <div class="lien-connection">
+                <a href="./../../index.php"><i class="fa-solid fa-circle-arrow-left"></i></a>					
+                <a href="formulaire_connection.php">se connecter</a>					
+            </div>
         </div>
-
-        <div class="textbox">
-            <i class="fa-solid fa-lock"></i>
-            <input type="password" placeholder="Mot de passe" name="password" required>
-        </div>
-        
-        <div class="textbox">
-            <label class="custom-checkbox">
-                <input id="estAdmin" name="estAdmin" type="checkbox">
-                <span class="checkmark"></span>
-            </label>      
-            <label for="estAdmin">Admin</label>
-        </div>
-
-        <input class="button" type="submit" name="login" value="Inscription">
-
-        <div class="lien-connection">
-            <a href="./../../index.php"><i class="fa-solid fa-circle-arrow-left"></i></a>					
-            <a href="formulaire_connection.php">se connecter</a>					
-        </div>
-    </div>
-</form>
-</body>
+    </form>
+    </body>
 </html>

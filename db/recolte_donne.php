@@ -4,8 +4,8 @@
 /////////////////////////////////////////////////////////
 
 include('./../interface/connection/connection_db.php');
-$temperature =number_format(mt_rand(0, 520) / 10, 1); //$_GET['temperature']; 
-$humidite = number_format(mt_rand(0, 220) / 10, 1); //$_GET['humidite'];
+$temperature = $_GET['temperature']; 
+$humidite = $_GET['humidite'];
 $sql = "INSERT INTO mesure (temperature, humidite) VALUES ($temperature, $humidite)";
 
 // Exécution de la commande SQL
